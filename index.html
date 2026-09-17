@@ -1,79 +1,52 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="style.css" />
-    <h1>New York City</h1>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,100' rel='stylesheet' type='text/css'>
+    <link href="style.css" rel="stylesheet">
   </head>
   <body>
-    <nav>
-      <li><a href="#Blog">Blog</a></li>
-      <li><a href="#Media">Media</a></li>
-      <li><a href="#About">About</a></li>
-    </nav>
-    <main>
-      <section id="Blog">
-        <article>
-          <p>
-            New York City is made up of five boroughs which include Queens,
-            Manhattan, Brooklyn, the Bronx, and Staten Island. The city is the
-            home of approximately 8 million people. In 1876, France gifted the
-            City of New York what is known as the Statue of Liberty, which is
-            currently located on Liberty Island and commonly visited by
-            tourists. However, it took 10 years to assemble and therefore wasn’t
-            unveiled until 1886. Another tourist destination is Times Square.
-            Times Square is commonly known for the big buildings, Broadway
-            shows, and bright neon signs. This famous location was named after
-            The New York Times after the Times moved to that location. Prior to
-            that, it was named Longacre Square. New York City is also known for
-            its bridges that connect the boroughs and allow ease of
-            transportation.
-          </p>
-        </article>
-      </section>
-      <figure>
-        <img
-          src="https://content.codecademy.com/courses/Semantic%20HTML/statue-of-liberty.jpeg"
-        />
-      </figure>
-      <aside>
-        <p>
-          New York City is very popular for the variety of great food it has.
-          Some of the top food items in NYC include:
-        </p>
-        <ol>
-          <li>Pizza</li>
-          <li>Bagels</li>
-          <li>Burgers and Sandwiches</li>
-          <li>Ramen</li>
-          <li>Tacos</li>
-          <li>Pasta</li>
-          <li>Desserts</li>
-        </ol>
-      </aside>
-      <section id="Media">
-        <article>
-          <h2>The Scenery in NYC</h2>
-          <article>
-            While the view in the city is beautiful, the sounds are not as
-            lovely. Below you'll see an example of the view and the sounds
-            you'll deal with in NYC on a daily basis.
-          </article>
-          <video
-            src="https://content.codecademy.com/courses/Semantic%20HTML/nyc-skyline-timelapse.mp4"
-            controls
-          ></video>
-          <embed
-            src="https://content.codecademy.com/courses/Semantic%20HTML/nyc-skyline.jpeg"
-          />
-          <audio
-            controls
-            src="https://content.codecademy.com/courses/Semantic%20HTML/nyc-sounds.mov"
-          ></audio>
-        </article>
-      </section>
-    </main>
-    <footer id="About">
-      <p>Contact information: Blogger@NYC.com</p>
-    </footer>
+    <div class="header">
+      <div class="container">
+        <h1>Innovation Cloud</h1>
+        <p>Connect your ideas globally</p>
+        <a class="btn" href="#">Learn More</a>
+      </div>
+    </div>
+
+    <div class="nav">
+      <div class="container">
+        <ul>
+          <li>Register</li>
+          <li>Schedule</li>
+          <li>Sponsors</li>
+          <li>About</li>
+          <li>Contact</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="container">
+        <img src="https://content.codecademy.com/projects/innovation-cloud/cloud.svg" height="128" width="196">
+        <h2>The Innovation Cloud Conference</h2>
+        <p>Connect with the best minds across a wide range of industries to share ideas and brainstorm new solutions to challenging problems.</p>
+        <p>Hear industry leaders talk about what worked (and what didn't) so that you can save time on your most challenging projects.</p>
+        <p>Learn about the latest research and technologies that you can use immediately to invent the future.</p>
+      </div>
+    </div>
+
+    <div class="jumbotron">
+      <div class="container">
+        <h2>Stay Connected</h2>
+        <p>Receive weekly insights from industry insiders.</p>
+        <a class="btn" href="#">Join</a>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="container">
+        <p>&copy; Innovation Cloud Conference</p>
+      </div>
+    </div>
   </body>
 </html>
