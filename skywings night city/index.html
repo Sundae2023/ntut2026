@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SKYWINGS ACID RADIO — 雲端旅行社酸性廣播站。霓虹航班、登機證核發、塔台廣播。目的地：賽博城。">
+  <title>SKYWINGS // ACID RADIO</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/js/tailwind.config.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="bg-acid-black text-acid-green font-mono antialiased scanlines selection:bg-acid-pink selection:text-acid-black">
+
+  <!-- NAVBAR -->
+  <nav class="border-b-2 border-acid-green bg-acid-black sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <a href="index.html" class="flex items-center gap-3 group">
+          <span class="w-8 h-8 bg-acid-green text-acid-black flex items-center justify-center text-sm font-bold">S</span>
+          <span class="text-lg font-bold tracking-[0.3em] uppercase glitch-hover">SKYWINGS</span>
+          <span class="text-[10px] text-acid-pink tracking-widest hidden sm:inline">// ACID RADIO</span>
+        </a>
+
+        <div class="hidden md:flex items-center gap-1 text-xs tracking-widest">
+          <a href="index.html" class="px-3 py-2 border border-acid-green text-acid-green bg-acid-green/10">01_HOME</a>
+          <a href="services.html" class="px-3 py-2 border border-acid-green/40 text-acid-green/60 hover:border-acid-green hover:text-acid-green">02_SERVICES</a>
+          <a href="blog.html" class="px-3 py-2 border border-acid-green/40 text-acid-green/60 hover:border-acid-green hover:text-acid-green">03_BLOG</a>
+          <a href="contact.html" class="px-3 py-2 border border-acid-green/40 text-acid-green/60 hover:border-acid-green hover:text-acid-green">04_CONTACT</a>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <button onclick="openBookingModal()" class="hidden sm:inline-block px-4 py-2 bg-acid-green text-acid-black text-xs font-bold tracking-widest hard-shadow-purple hard-hover">領取登機證</button>
+          <button onclick="toggleMobileMenu()" class="md:hidden text-acid-green p-2 text-lg"><i class="fa-solid fa-bars" id="mobile-menu-icon"></i></button>
+        </div>
+      </div>
+
+      <div id="mobile-menu" class="hidden md:hidden py-3 border-t border-acid-green/30 flex flex-col gap-1 text-xs tracking-widest">
+        <a href="index.html" class="px-3 py-2 border border-acid-green text-acid-green">01_HOME</a>
+        <a href="services.html" class="px-3 py-2 border border-acid-green/30 text-acid-green/60">02_SERVICES</a>
+        <a href="blog.html" class="px-3 py-2 border border-acid-green/30 text-acid-green/60">03_BLOG</a>
+        <a href="contact.html" class="px-3 py-2 border border-acid-green/30 text-acid-green/60">04_CONTACT</a>
+        <button onclick="openBookingModal(); toggleMobileMenu()" class="mt-2 px-3 py-2 bg-acid-green text-acid-black font-bold tracking-widest">領取登機證</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="flex-grow">
+
+    <!-- HERO：橫式大圖背景 -->
+    <section class="relative overflow-hidden border-b-2 border-acid-green">
+      <div class="absolute inset-0">
+        <img src="assets\img\01.jpg"
+             alt="Cyberpunk aircraft in neon sky"
+             class="w-full h-full object-cover cyber-img opacity-60">
+        <div class="absolute inset-0 bg-gradient-to-r from-acid-black via-acid-black/70 to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-acid-black via-transparent to-acid-purple/20"></div>
+      </div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32 lg:py-40">
+        <p class="text-xs text-acid-pink tracking-[0.4em] mb-4">FREQUENCY 88.8 // NOW BOARDING</p>
+
+        <div class="relative inline-block">
+          <h1 class="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tighter uppercase leading-none text-acid-green">歡迎登機</h1>
+          <h1 class="absolute inset-0 text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tighter uppercase leading-none text-acid-purple translate-x-[4px] translate-y-[4px] opacity-60 pointer-events-none" aria-hidden="true">歡迎登機</h1>
+        </div>
+        <div class="relative inline-block mt-1">
+          <h1 class="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tighter uppercase leading-none text-acid-green">飛往</h1>
+          <h1 class="absolute inset-0 text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tighter uppercase leading-none text-acid-pink translate-x-[4px] translate-y-[4px] opacity-60 pointer-events-none" aria-hidden="true">飛往</h1>
+        </div>
+        <h1 class="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tighter uppercase leading-none text-acid-yellow mt-1">霓虹不夜城</h1>
+
+        <p class="mt-6 text-sm text-acid-green/60 tracking-wider max-w-md">
+          本次航班由 SKYWINGS 雲端旅行社核發。目的地：賽博城，沿途有霓虹、酸雨與輕微亂流。
+        </p>
+
+        <div class="mt-8 flex flex-wrap gap-4">
+          <button onclick="openBookingModal()" class="px-8 py-4 bg-acid-green text-acid-black text-sm font-bold tracking-widest hard-shadow-pink hard-hover">領取登機證 →</button>
+          <button onclick="spinDestination()" class="px-8 py-4 border-2 border-acid-yellow text-acid-yellow text-sm font-bold tracking-widest hover:bg-acid-yellow hover:text-acid-black transition-none">轉盤選目的地</button>
+        </div>
+
+        <div id="destination-result" class="mt-6 hidden border-2 border-acid-pink p-4 max-w-md bg-acid-black/80">
+          <p class="text-xs text-acid-pink tracking-widest mb-1">塔台指派目的地</p>
+          <p id="destination-name" class="text-2xl font-bold text-acid-yellow tracking-tight"></p>
+          <p id="destination-desc" class="text-xs text-acid-green/50 mt-1"></p>
+        </div>
+
+        <p class="absolute bottom-4 right-4 text-[10px] text-acid-green/40 tracking-widest">SIGNAL_STRENGTH: ███████░░ 78%</p>
+      </div>
+    </section>
+
+    <!-- PARTNER LOGOS -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div class="border-y border-acid-green/20 py-4 flex flex-wrap justify-center items-center gap-8 md:gap-14 text-acid-green/40 text-xs tracking-[0.3em] uppercase">
+        <span class="flex items-center gap-2"><i class="fa-solid fa-microchip text-base text-acid-pink"></i> NEURO-AIR</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-bolt text-base text-acid-yellow"></i> VOLT-EX</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-eye text-base text-acid-purple"></i> OPTIC-GO</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-skull text-base text-acid-pink"></i> BLACK-ICE</span>
+      </div>
+    </section>
+
+    <!-- 跑馬燈 -->
+    <div class="border-y-2 border-acid-green bg-acid-green text-acid-black overflow-hidden py-2">
+      <div class="marquee-track text-xs font-bold tracking-[0.3em] uppercase">
+        NOW BOARDING // 登機證核發中 // 塔台廣播 // SKYWINGS ACID RADIO // 霓虹不夜城開放中 // 酸雨警報：輕微 // NOW BOARDING // 登機證核發中 // 塔台廣播 // SKYWINGS ACID RADIO // 霓虹不夜城開放中 // 酸雨警報：輕微 //
+      </div>
+    </div>
+
+    <!-- 三張目的地卡片 -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="flex items-end justify-between mb-8">
+        <div>
+          <p class="text-xs text-acid-pink tracking-[0.3em] mb-2">// AVAILABLE FLIGHTS</p>
+          <h2 class="text-3xl font-bold tracking-tight uppercase text-acid-green">本週航班</h2>
+        </div>
+        <span class="text-xs text-acid-green/40 tracking-widest hidden sm:inline">3 班次 // 即時更新</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="border-2 border-acid-green p-4 relative group hover:bg-acid-green/5 transition-none">
+          <div class="relative h-48 overflow-hidden border border-acid-green/40 mb-4 img-glitch-wrap">
+            <img src="assets\img\masayuki-koyama-shota11-sharp-00000.jpg"
+                 alt="Neon city skyline at night" class="w-full h-full object-cover cyber-img">
+            <div class="absolute top-2 right-2 bg-acid-black/80 border border-acid-pink text-acid-pink text-[10px] px-2 py-1 tracking-widest">¥ 8,888</div>
+          </div>
+          <p class="text-[10px] text-acid-green/40 tracking-widest mb-2">FLIGHT_001 // SECTOR-7</p>
+          <h3 class="text-lg font-bold text-acid-yellow tracking-tight uppercase mb-1">霓虹不夜城</h3>
+          <p class="text-xs text-acid-green/50 tracking-wider mb-4">新東京 // 本週 3 人飛往此處</p>
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] text-acid-green/30">4h 20m</span>
+            <button onclick="openBookingModal()" class="text-xs px-3 py-1.5 border border-acid-pink text-acid-pink hover:bg-acid-pink hover:text-acid-black transition-none">劃位</button>
+          </div>
+        </div>
+
+        <div class="border-2 border-acid-green p-4 relative group hover:bg-acid-green/5 transition-none">
+          <div class="relative h-48 overflow-hidden border border-acid-green/40 mb-4 img-glitch-wrap">
+            <img src="assets\img\t-v-neo-city-day.jpg"
+                 alt="Rainy cyberpunk street with neon signs" class="w-full h-full object-cover cyber-img">
+            <div class="absolute top-2 right-2 bg-acid-black/80 border border-acid-pink text-acid-pink text-[10px] px-2 py-1 tracking-widest">¥ 12,400</div>
+          </div>
+          <p class="text-[10px] text-acid-green/40 tracking-widest mb-2">FLIGHT_002 // NIGHT-CITY</p>
+          <h3 class="text-lg font-bold text-acid-yellow tracking-tight uppercase mb-1">酸雨電路區</h3>
+          <p class="text-xs text-acid-green/50 tracking-wider mb-4">九龍寨城 // 本週 7 人飛往此處</p>
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] text-acid-green/30">6h 05m</span>
+            <button onclick="openBookingModal()" class="text-xs px-3 py-1.5 border border-acid-pink text-acid-pink hover:bg-acid-pink hover:text-acid-black transition-none">劃位</button>
+          </div>
+        </div>
+
+        <div class="border-2 border-acid-green p-4 relative group hover:bg-acid-green/5 transition-none">
+          <div class="relative h-48 overflow-hidden border border-acid-green/40 mb-4 img-glitch-wrap">
+            <img src="assets\img\September 02 2018 at 10_43PM.jpg"
+                 alt="Futuristic neon tunnel" class="w-full h-full object-cover cyber-img">
+            <div class="absolute top-2 right-2 bg-acid-black/80 border border-acid-pink text-acid-pink text-[10px] px-2 py-1 tracking-widest">¥ 7,600</div>
+          </div>
+          <p class="text-[10px] text-acid-green/40 tracking-widest mb-2">FLIGHT_003 // DATA-HAVEN</p>
+          <h3 class="text-lg font-bold text-acid-yellow tracking-tight uppercase mb-1">數據庇護所</h3>
+          <p class="text-xs text-acid-green/50 tracking-wider mb-4">地下雲端 // 本週 2 人飛往此處</p>
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] text-acid-green/30">3h 40m</span>
+            <button onclick="openBookingModal()" class="text-xs px-3 py-1.5 border border-acid-pink text-acid-pink hover:bg-acid-pink hover:text-acid-black transition-none">劃位</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROMO BANNER -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="border-2 border-acid-purple p-6 sm:p-8 grid md:grid-cols-12 gap-8 items-center relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: repeating-linear-gradient(90deg, #a020f0 0px, #a020f0 1px, transparent 1px, transparent 40px);"></div>
+        <div class="md:col-span-4 relative h-56 md:h-full border border-acid-purple overflow-hidden img-glitch-wrap">
+          <img src="assets\img\photo-1545987796-200677ee1011.avif"
+               alt="Cyberpunk city at night" class="w-full h-full object-cover cyber-img">
+          <div class="absolute top-3 left-3 bg-acid-purple text-acid-black font-bold text-[10px] px-2 py-1 tracking-widest">20% OFF FIRST FLIGHT</div>
+        </div>
+        <div class="md:col-span-8 space-y-4 relative z-10">
+          <h2 class="text-2xl sm:text-3xl font-bold uppercase tracking-tight leading-tight text-acid-green">解鎖你的賽博漫遊魂</h2>
+          <p class="text-acid-green/50 text-sm leading-relaxed tracking-wider">搭乘 SKYWINGS 霓虹航班，前往賽博城。全程提供神經連結娛樂系統、酸雨防護罩、以及優先通關晶片。</p>
+          <button onclick="openBookingModal()" class="inline-flex items-center gap-3 px-6 py-3 bg-acid-yellow text-acid-black text-xs font-bold tracking-widest hard-shadow-pink hard-hover">
+            <span>立即預訂航班</span>
+            <i class="fa-solid fa-bolt"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <h2 class="text-2xl font-bold text-acid-green uppercase tracking-tight">關於我們的賽博航空</h2>
+        <p class="text-acid-green/40 text-xs mt-2 tracking-wider">在霓虹與酸雨之間，我們負責把你送到目的地。</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="border-2 border-acid-green p-6 text-center">
+          <div class="text-3xl font-bold text-acid-pink mb-2">12+</div>
+          <div class="font-bold text-acid-green text-sm tracking-widest">YEARS IN THE GRID</div>
+          <p class="text-[10px] text-acid-green/30 mt-2">自 2014 年起在霓虹網格中營運。</p>
+        </div>
+        <div class="border-2 border-acid-green p-6 text-center">
+          <div class="text-3xl font-bold text-acid-pink mb-2">98K</div>
+          <div class="font-bold text-acid-green text-sm tracking-widest">HAPPY RUNNERS</div>
+          <p class="text-[10px] text-acid-green/30 mt-2">已將 98,000 名旅客送達賽博城市。</p>
+        </div>
+        <div class="border-2 border-acid-green p-6 text-center">
+          <div class="text-3xl font-bold text-acid-pink mb-2">450+</div>
+          <div class="font-bold text-acid-green text-sm tracking-widest">DIRECT SECTORS</div>
+          <p class="text-[10px] text-acid-green/30 mt-2">直飛 450 個霓虹區塊，無需轉機。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="text-center max-w-xl mx-auto mb-10">
+        <p class="text-xs text-acid-pink tracking-[0.3em] mb-1">// TESTIMONIALS</p>
+        <h2 class="text-2xl font-bold text-acid-green uppercase tracking-tight">來自網格居民的聲音</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="border border-acid-green/40 p-5 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex text-acid-yellow gap-1 text-[10px]">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-xs text-acid-green/60 leading-relaxed italic">「SKYWINGS 把我從霓虹不夜城送到酸雨電路區，全程只花了 6 小時，酸雨防護罩真的有效。」</p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 mt-4 border-t border-acid-green/10">
+            <img src="assets\img\__Luxpunk Brutalism__ Heat Visor.jpg" class="w-8 h-8 object-cover cyber-img" alt="Avatar">
+            <div>
+              <h4 class="font-bold text-xs text-acid-green">ADAM_2077</h4>
+              <p class="text-[10px] text-acid-green/30 tracking-widest">GRID RUNNER</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="border border-acid-green/40 p-5 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex text-acid-yellow gap-1 text-[10px]">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-xs text-acid-green/60 leading-relaxed italic">「塔台廣播很準時，改票也只花了幾分鐘。推薦給所有在網格中穿梭的旅人。」</p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 mt-4 border-t border-acid-green/10">
+            <img src="assets\img\__Shattered Stars__ Zenith Revenant.jpg" class="w-8 h-8 object-cover cyber-img" alt="Avatar">
+            <div>
+              <h4 class="font-bold text-xs text-acid-green">NOAH_NEO</h4>
+              <p class="text-[10px] text-acid-green/30 tracking-widest">DIGITAL NOMAD</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="border border-acid-green/40 p-5 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex text-acid-yellow gap-1 text-[10px]">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-xs text-acid-green/60 leading-relaxed italic">「價格透明、沒有隱藏費用。我每次要飛數據庇護所前，都先查 SKYWINGS。」</p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 mt-4 border-t border-acid-green/10">
+            <img src="assets\img\__UltraSplash x Neon Green__.jpg" class="w-8 h-8 object-cover cyber-img" alt="Avatar">
+            <div>
+              <h4 class="font-bold text-xs text-acid-green">EMMA_88</h4>
+              <p class="text-[10px] text-acid-green/30 tracking-widest">CORP EXPLORER</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 塔台狀態 -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+      <div class="border-2 border-acid-purple p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div>
+          <p class="text-xs text-acid-purple tracking-[0.3em] mb-1">// TOWER STATUS</p>
+          <p class="text-sm text-acid-green/60 tracking-wider">塔台時間 <span id="tower-clock" class="text-acid-yellow">--:--:--</span> // 今日已核發 <span class="text-acid-pink">47</span> 張登機證</p>
+        </div>
+        <div class="flex gap-2">
+          <span class="w-2 h-2 bg-acid-green animate-pulse"></span>
+          <span class="w-2 h-2 bg-acid-green animate-pulse" style="animation-delay:0.2s"></span>
+          <span class="w-2 h-2 bg-acid-green animate-pulse" style="animation-delay:0.4s"></span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t-2 border-acid-green bg-acid-black text-acid-green/40 text-[10px] tracking-wider pt-12 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 pb-10">
+      <div class="space-y-3">
+        <div class="flex items-center gap-2">
+          <span class="w-6 h-6 bg-acid-green text-acid-black flex items-center justify-center text-xs font-bold">S</span>
+          <span class="text-sm font-bold text-acid-green tracking-[0.2em]">SKYWINGS</span>
+        </div>
+        <p class="leading-relaxed text-acid-green/30">雲端旅行社酸性廣播站。航班、登機證、塔台廣播。目的地未知，沿途有酸雨。</p>
+        <div class="flex gap-3 text-acid-green/40 text-sm">
+          <a href="#" class="hover:text-acid-pink"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#" class="hover:text-acid-pink"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="hover:text-acid-pink"><i class="fa-brands fa-github"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-acid-yellow font-bold text-xs mb-3 tracking-[0.2em]">頻道</h4>
+        <ul class="space-y-1.5">
+          <li><a href="index.html" class="hover:text-acid-green">01_HOME</a></li>
+          <li><a href="services.html" class="hover:text-acid-green">02_SERVICES</a></li>
+          <li><a href="blog.html" class="hover:text-acid-green">03_BLOG</a></li>
+          <li><a href="contact.html" class="hover:text-acid-green">04_CONTACT</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-acid-yellow font-bold text-xs mb-3 tracking-[0.2em]">訊號</h4>
+        <ul class="space-y-1.5">
+          <li><a href="#" class="hover:text-acid-green">酸雨預報</a></li>
+          <li><a href="#" class="hover:text-acid-green">登機證查驗</a></li>
+          <li><a href="#" class="hover:text-acid-green">塔台 FAQ</a></li>
+          <li><a href="#" class="hover:text-acid-green">隱私頻道</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-acid-yellow font-bold text-xs mb-3 tracking-[0.2em]">訂閱塔台廣播</h4>
+        <p class="mb-3 text-acid-green/30">不錯過任何起飛。</p>
+        <form onsubmit="handleNewsletter(event)" class="flex gap-2">
+          <input type="email" placeholder="YOUR@EMAIL" required class="bg-transparent border border-acid-green/40 text-acid-green px-2 py-1.5 w-full text-[10px] focus:outline-none focus:border-acid-pink placeholder:text-acid-green/20">
+          <button class="bg-acid-green text-acid-black font-bold px-3 text-[10px] tracking-widest">JOIN</button>
+        </form>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-acid-green/20 pt-5 text-center text-acid-green/20">
+      &copy; 2026 SKYWINGS ACID RADIO // 訊號發射中 // 所有頻道保留
+    </div>
+  </footer>
+
+  <!-- BOOKING MODAL -->
+  <div id="booking-modal" class="fixed inset-0 bg-acid-black/90 z-50 flex items-center justify-center hidden p-4">
+    <div class="bg-acid-black border-2 border-acid-green max-w-md w-full p-6 relative hard-shadow-pink">
+      <button onclick="closeBookingModal()" class="absolute top-3 right-3 text-acid-green hover:text-acid-pink text-lg"><i class="fa-solid fa-xmark"></i></button>
+      <p class="text-[10px] text-acid-pink tracking-[0.3em] mb-2">// BOARDING PASS GENERATOR</p>
+      <h3 class="text-xl font-bold text-acid-yellow tracking-tight uppercase mb-1">領取登機證</h3>
+      <p class="text-[10px] text-acid-green/40 tracking-wider mb-5">填寫資訊，塔台將核發你的登機證。</p>
+      <form onsubmit="handleModalSubmit(event)" class="space-y-3">
+        <div>
+          <label class="block text-[10px] text-acid-green/50 tracking-widest mb-1">目的地</label>
+          <select class="w-full bg-transparent border border-acid-green/40 text-acid-green px-3 py-2 text-xs focus:outline-none focus:border-acid-pink">
+            <option class="bg-acid-black">霓虹不夜城 // 新東京</option>
+            <option class="bg-acid-black">酸雨電路區 // 九龍寨城</option>
+            <option class="bg-acid-black">數據庇護所 // 地下雲端</option>
+            <option class="bg-acid-black">賽博城 // 未知</option>
+          </select>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-[10px] text-acid-green/50 tracking-widest mb-1">起飛日</label>
+            <input type="date" required class="w-full bg-transparent border border-acid-green/40 text-acid-green px-2 py-2 text-xs focus:outline-none focus:border-acid-pink">
+          </div>
+          <div>
+            <label class="block text-[10px] text-acid-green/50 tracking-widest mb-1">旅客數</label>
+            <input type="number" min="1" max="10" value="1" required class="w-full bg-transparent border border-acid-green/40 text-acid-green px-2 py-2 text-xs focus:outline-none focus:border-acid-pink">
+          </div>
+        </div>
+        <button type="submit" class="w-full bg-acid-green text-acid-black font-bold py-3 text-xs tracking-[0.2em] hard-shadow-purple hard-hover mt-1">核發登機證</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2"></div>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
